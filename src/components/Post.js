@@ -88,7 +88,7 @@ const Post = ({dispatchDraft, history, dispatch, title, content, isAdmin, id, pi
                         isAdmin={isAdmin}
                         key={cur.image}
                         id={cur.image}
-                        src={`https://kalbertstore-restapi.herokuapp.com/posts/image/${cur.image}`}
+                        src={`${process.env.BASE_URL}/posts/image/${cur.image}`}
                     />
                     {isAdmin &&
                     <div key={uuid()} className="container container--text-center">
