@@ -1,0 +1,38 @@
+.checkbox {
+  margin-top: 1rem;
+  display: blocK;
+  background-color: $off-d-purp;
+  height: 5rem;
+  width: 5rem;
+  border-radius: .5rem;
+  position: relative;
+  transition: background-color 500ms;
+}
+
+.checkbox::after {
+
+  content: "";
+  position: absolute;
+  width: 1.6rem;
+  height: 2.7rem;
+  border-right: .25rem solid $off-d-purp;
+  border-bottom: .25rem solid $off-d-purp;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(40deg) scale(10);
+  opacity: 0;
+  transition: all 500ms;
+}
+
+input[id^=checkbox]:checked ~ .checkbox{
+  background-color: $dark-purple;
+}
+
+input[id^=checkbox]:checked ~ .checkbox::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotateZ(40deg) scale(1);
+
+}
+.checkbox__input {
+  margin-top: 1rem; 
+}

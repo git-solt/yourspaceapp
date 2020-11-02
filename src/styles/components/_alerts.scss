@@ -1,0 +1,44 @@
+.msg {
+  font-size: $s-size;
+  padding: $s-size;
+
+}
+
+.msg--normal {
+  font-size: $norm-size;
+}
+
+.msg--tiny {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.msg--medium {
+  font-size: $m-size;
+  font-weight: 500;
+}
+
+.msg--alert {
+  color: $dangour-red
+}
+
+.msg--info {
+  color: $orange-onpurp
+}
+
+.msg--transend {
+  transition: ease-in 2s;
+}
+
+.msg--registered {
+  color: $light-blue;
+  font-size: $m-size; 
+}
+
+.msg--constrict {
+  max-width: 20rem;
+}
+
+.msg--underline {
+  text-decoration: underline;
+}

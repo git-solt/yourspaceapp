@@ -1,0 +1,92 @@
+.relative {
+  position: relative
+}
+
+.absolute {
+  position: absolute;
+  right: 15rem;
+}
+
+
+
+
+
+.absolute--layout {
+  right: 50%;
+  top: 50%;
+  left: 50%;
+  color: transparent;
+  background-color: transparent;
+  transition: color ease-in 200ms;
+  visibility: hidden;
+}
+
+.absolute--layout:hover {
+  background-color: rgba(0,0,0,.3);
+}
+
+.column {
+  flex-direction: column;
+}
+
+.margint--1 {
+  margin-top: 1rem;
+}
+
+.margint--2 {
+  margin-top: 2rem;
+}
+
+.marginb--1 {
+  margin-bottom: 1rem;
+}
+
+.marginb--1 {
+  margin-bottom: 2rem
+}
+
+.padding--1-sides {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.img-fit-fill {
+  object-fit: fill;
+}
+
+.img-fit {
+  object-fit: cover;
+}
+
+.img-fit--cover {
+  object-fit: cover;
+}
+
+.img-fit--scale {
+  object-fit: scale-down;
+}
+
+.img-fit--contain {
+  object-fit: contain;
+}
+
+img:hover ~ .absolute--layout, .absolute--layout:hover {
+  color: $off-purp;
+  background-color: $dark-purple;
+  visibility: visible;
+
+}
+
+.spinner {
+  object-fit: cover;
+  opacity: .5;
+
+}
+
+//@media (max-width:$phone-width) {
+//.loader__gif {
+//  max-width: inherit;
+//
+//}
+//
+//}

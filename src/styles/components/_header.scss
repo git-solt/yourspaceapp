@@ -1,0 +1,25 @@
+.header {
+  background-image: url('/assets/PurpleBackground2.jpg');
+  padding: $m-size;
+
+}
+
+.header__title {
+  color: white;
+}
+
+.header__admin-menu {
+  font-size: 1.3rem;
+}
+
+.header__links {
+  text-decoration: none;
+  color: $orange-onpurp
+  
+}
+
+
+.header__auth {
+  color: $light-blue;
+  text-decoration: none;
+}

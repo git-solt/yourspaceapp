@@ -1,0 +1,22 @@
+html {
+  color: white;
+  font-family: Open Sans Condensed, Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  background-image: linear-gradient(to top left,black, $off-d-purp, black);
+  min-height: 100vh;
+}
+
+
+@media (max-height: $phone-height) and (orientation: landscape){
+  html {
+    background-attachment: fixed;
+
+  }
+}
+
+@media (max-width: $phone-width) {
+  html  {
+    background-attachment: fixed;
+  }
+}
+

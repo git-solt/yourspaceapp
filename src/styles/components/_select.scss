@@ -1,0 +1,57 @@
+// #box {
+//   position: absolute;
+//   top:50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%)
+// }
+
+// #box select {
+//   background: rgb(0,0,0);
+//   border: none;
+//   font-size: 1rem;
+//   outline: none;
+//   border-radius: 5px;
+// }
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  outline: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
+
+.select--style{
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-size: $norm-size;
+  font-weight: 700;
+}
+
+.select--style--bgchange {
+  background: inherit;
+  transition: ease-in 200ms;
+}
+
+.select--style--bgchange:hover {
+  background: $dark-purple;
+  
+}
+
+.select__box {
+  width: 10rem;
+  height: 20rem; 
+  background-color: transparent;
+
+  top: calc(50% - 10rem);
+  bottom: calc(50% - 10rem);
+  right:calc(50% - 5rem);
+  left: calc(50% - 5rem);
+  border-radius: .5rem;
+}
+

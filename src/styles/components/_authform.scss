@@ -1,0 +1,185 @@
+.formtest {
+  height: 12rem;
+  width: 21rem;
+  position: absolute;
+  background: rgba(0,0,0,.3);
+  font-size: 1.2rem;
+  color: $dark-purple;
+  font-weight: 900;
+  top: 10rem;
+}
+
+
+
+.form--error {
+  border: 1px solid rgb(99, 20, 20);
+}
+
+.userfield {
+  margin: 1rem;
+  background-color: rgb(255,255,255);
+  border: none;
+}
+
+
+.userfield::placeholder {
+  text-align: center;
+  color: $dark-purple
+}
+
+.userfield--register {
+  margin-bottom: 2rem;
+  width: 100%;
+  border-radius: .2rem;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  border: none;
+  color: $dark-purple;
+  transition: ease-in 1s;
+}
+
+.userfield--register-done-bg {
+  background-color: transparent;
+  outline: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userfield--register-done-text {
+  color: transparent;
+}
+
+.userfield--register-done-bg::placeholder {
+  color: $orange-onpurp;
+  font-size: $norm-size;
+}
+
+.userfield--username {
+  margin: 1rem;
+  color: $orange-onpurp;
+
+}
+
+.userfield--username-done {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  margin: auto
+}
+
+.userfield--welcome {
+  top: 40%;
+}
+
+.userfield--welcome::placeholder {
+  font-size: $m-size;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 1.3rem solid transparent;
+  border-right: 1.3rem solid transparent;
+
+  border-bottom: .5rem solid $light-blue;
+  position: absolute;
+  top: 9.5rem;
+}
+
+.arrow-up:hover {
+  cursor: pointer;
+  
+}
+
+.modal {
+  background-color: rgba(0,0,0,.2);
+  height: 70vh;
+  width: 31.15vw;
+  position: fixed;
+  z-index: 1;
+  top: 20vh;
+  left: 34vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all ease 500ms;
+
+}
+
+
+
+.modal--close-btn {
+  display: flex;
+  width: 5rem;
+  justify-content: center;
+  font-size: 5rem;
+  margin-top: 0;
+  position: absolute;
+  top: .3rem;
+  color: white;
+  font-weight: 700;
+  transition: color ease-out 500ms;
+}
+
+.model--close-btn-hide {
+  color: transparent;
+}
+
+.modal--close-btn:hover {
+  cursor: pointer;
+}
+
+.modal__header-container {
+  margin-top: 2rem;
+  padding-top: 0;
+  padding-bottom: 10rem;
+}
+
+@media (max-width: $phone-width) {
+  .modal {
+    width: 80vw;
+    left: 10%;
+  }
+
+  #modalInfo {
+    margin-top:10rem;
+  }
+
+  .modal__header-container {
+    height: 10%;
+  }
+
+  .formtest {
+    top: 22%;
+    left: 10%;
+    right: 10%;
+  }
+}
+
+@media (orientation: landscape) and (max-height: $phone-height) {
+
+    .modal {
+      height: 100vh;
+      top: 0
+    }
+
+    .userfield--register {
+      height: .1rem;
+    }
+
+    .modal--close-btn {
+      font-size: 2rem;
+    }
+
+    .formtest {
+      background-color: $dark-purple;
+      z-index: 1;
+      height: 15rem;
+      top: calc(15rem)
+    }
+
+}
+

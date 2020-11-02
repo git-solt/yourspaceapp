@@ -1,0 +1,122 @@
+.link-button {
+  text-decoration: none;
+  color: transparentize($color: $orange-onpurp, $amount: .5);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.link-button:hover {
+  background:$transparent-dark;
+  width: 30rem;
+  text-align: end;
+
+}
+
+.clear-button__update {
+  background-color: transparent;
+  color: $bright-green;
+  font-weight: 700;
+  border:none;
+  text-decoration: underline;
+
+}
+
+.link-button__edit {
+  text-decoration: none;
+  color: transparentize($color: $orange-onpurp, $amount: .5);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.link-button__edit:hover {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: $transparent-orange-onpurp;
+  
+  
+}
+
+.link-button__upload {
+  text-decoration: none;
+  color: $off-purp;
+  font-size: .8rem;
+  font-weight: 900;
+  padding-top: .5rem;
+}
+
+.hidden-default-file-browser-button {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+
+}
+
+.button {
+  background-color: rgba(0,0,0, .3);
+  padding: $s-size;
+  color: $orange-onpurp;
+  font-weight: 600;
+  border-radius: 5px;
+  border: hidden;
+  transition: ease-in-out 500ms;
+}
+
+.button--draft {
+  width: 5rem;
+  height: 5rem;
+  margin: auto;
+}
+
+.button:hover {
+  background-color: rgba(0,0,0, .5);
+  cursor: pointer;
+}
+
+.button__hide:hover {
+  background-color: transparent;
+}
+
+.button__hide--inherrit {
+  visibility: inherit;
+  background-color: inherit;
+  color: inherit;
+}
+
+.button--border {
+  border: 2px solid $orange-onpurp;
+
+}
+
+.button--register {
+  margin-bottom: 2rem;
+  width: 100%;
+  border-radius: .2rem;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.button--block {
+  display: inline-block;
+}
+
+.button--pri {
+  z-index: 1;
+}
+
+.button--margin {
+  margin-top: $s-size
+}
+
+.button--marginb {
+  margin-bottom: $s-size;
+}
+
+.button--delete {
+  background-color:rgba(226, 21, 21, .1);
+  border: none;
+  color: $off-d-purp;
+}
+

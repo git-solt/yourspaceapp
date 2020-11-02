@@ -1,0 +1,69 @@
+.post {
+  background:$transparent-dark-purple;
+  padding: $m-size 0;
+}
+
+.post--loading {
+  background-color: black;
+}
+
+.post__create {
+  background-color: rgba(0,0,0,.2);
+  border: none;
+  padding: $s-size;
+  font-size: 1.2rem;
+  transition: ease-in-out 500ms ; 
+}
+
+.post__create--draft {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  background-color: transparent;
+}
+
+.post__create:focus {
+  border: none;
+  outline: none;
+  background-color: transparentize($color: $dark-purple, $amount: .9)
+}
+
+.post__create--draft:focus {
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0,.1);
+}
+
+.post__create::placeholder {
+  text-align: center;
+  line-height: 50rem;
+
+}
+
+.post__create--content {
+  height: 50rem;
+  resize: none;
+
+
+}
+
+.post__create--draft-content {
+  border: none;
+  height: 10rem; 
+  resize: none;
+  background-color: transparent;
+  text-align: center;
+  z-index: 1;
+
+}
+
+.post__create:focus::placeholder {
+
+  visibility: hidden;
+}
+
+@media (max-width: $phone-width) {
+  .loader__gif {
+    width: 100%;
+  }
+}
