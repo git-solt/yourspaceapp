@@ -80,13 +80,12 @@ const Post = ({dispatchDraft, history, dispatch, title, content, isAdmin, id, pi
             }
 
             {pics && pics.map(cur =>
-                <div>
+                <div key={cur.image}>
                     <Image
                         token={token}
                         pics={pics} post={id}
                         startRemovePicHandler={startRemovePicHandler}
                         isAdmin={isAdmin}
-                        key={cur.image}
                         id={cur.image}
                         src={`${process.env.BASE_URL}/posts/image/${cur.image}`}
                     />
@@ -135,8 +134,8 @@ const Post = ({dispatchDraft, history, dispatch, title, content, isAdmin, id, pi
                         if (cur.image === desc.image) {
 
                             return (
-                                <div className={isAdmin ? "container--flex description admin" : "container--flex description"}>
-                                    <Description  paragraph={desc.paragraph}/>
+                                <div key={cur.image} className={isAdmin ? "container--flex description admin" : "container--flex description"}>
+                                    <Description paragraph={desc.paragraph}/>
                                     {isAdmin && <span onClick={() => {
                                         removeDescription(id, cur.image, desc._id, token )
                                             .then(data => dispatchDescriptions({type:'REMOVE_DESCRIPTION', id:desc._id}))

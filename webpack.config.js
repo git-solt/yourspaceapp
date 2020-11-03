@@ -36,5 +36,6 @@ module.exports = {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
       publicPath: '/dist/'
-    }
+    },
+    devtool:'eval-cheap-module-source-map'
   }

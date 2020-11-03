@@ -42,6 +42,10 @@ const UploadImage = (props) => {
     </div>
   )
 }
+
+UploadImage.defaultProps = {
+  pics: []
+}
 const mapStateToProps = (state) => ({
   posts: state.posts,
   user: state.authentication
