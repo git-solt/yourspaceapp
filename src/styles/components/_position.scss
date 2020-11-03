@@ -83,6 +83,14 @@ img:hover ~ .absolute--layout, .absolute--layout:hover {
 
 }
 
+.tiny {
+  width:10%;
+}
+
+.max {
+  font-size: large;
+}
+
 //@media (max-width:$phone-width) {
 //.loader__gif {
 //  max-width: inherit;
