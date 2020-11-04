@@ -70,7 +70,7 @@ const Main = (props) => {
                                 }
                             })
                     }}>{error || circles}</p>
-                    <span className="tooltip--hint">Load more posts</span>
+                    <span className="tooltip--hint">More posts</span>
                 </div>)}
 
         </div>
