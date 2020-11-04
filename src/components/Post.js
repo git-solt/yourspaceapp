@@ -48,13 +48,18 @@ const Post = ({dispatchDraft, history, dispatch, title, content, isAdmin, id, pi
 
     useEffect(() => {
         getPost(id)
-            .then(data => data.pics.forEach((cur, index) => {
-                cur.descriptions.forEach((des) => {
-                    console.log(des)
-                    dispatchDescriptions({type: 'ADD_DESCRIPTION', descriptions: {...des}})
-                })
+            .then(data => {
+                if(data.pics) {
+                    data.pics.forEach((cur, index) => {
+                        cur.descriptions.forEach((des) => {
+                            console.log(des)
+                            dispatchDescriptions({type: 'ADD_DESCRIPTION', descriptions: {...des}})
+                        })
+        
+                    })
+                }
 
-            }))
+            })
         return () => {
             console.log('I AM RERENDERIN')
         }
@@ -79,7 +84,7 @@ const Post = ({dispatchDraft, history, dispatch, title, content, isAdmin, id, pi
                 </div>
             }
 
-            {pics && pics.map(cur =>
+            {pics && pics.map((cur) =>
                 <div key={cur.image}>
                     <Image
                         token={token}
@@ -130,11 +135,10 @@ const Post = ({dispatchDraft, history, dispatch, title, content, isAdmin, id, pi
                             <input className="description__add" type="submit" value="Add"/>
                         </form>}
                     </div>}
-                    {descriptions.map(desc => {
+                    {descriptions.map((desc) => {
                         if (cur.image === desc.image) {
-
                             return (
-                                <div key={cur.image} className={isAdmin ? "container--flex description admin" : "container--flex description"}>
+                                <div key={desc._id} className={isAdmin ? "container--flex description admin" : "container--flex description"}>
                                     <Description paragraph={desc.paragraph}/>
                                     {isAdmin && <span onClick={() => {
                                         removeDescription(id, cur.image, desc._id, token )

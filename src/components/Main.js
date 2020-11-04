@@ -48,7 +48,7 @@ const Main = (props) => {
                 isAdmin={props.user.user.isAdmin}
                 key={cur.id}{...cur} />)}
             {props.posts.length > 0 && (
-                <div className="tooltip container container--text-center tiny link-button--fetch-post">
+                <div className="tooltip container container__content-center tiny link-button--fetch-post">
                     <p className="max" onClick={(e) => {
                         fetchPosts({ limit: 5, skip })
                             .then(data => {
