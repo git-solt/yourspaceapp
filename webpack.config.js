@@ -2,17 +2,24 @@ const path = require('path')
 
 const webpack = require('webpack')
 
-const dotenv = require('dotenv').config({path: path.resolve(__dirname, 'config', '.env' )})
+const dotenv = require('dotenv').config({ path: path.resolve(__dirname, 'config', '.env') })
 
+console.log(process.env.BASE_URL)
 
-module.exports = {
+module.exports = (env, args) => {
+  let isProd = args.mode === 'production'
+  console.log(env)
+
+  return {
+    mode: args.mode,
     entry: ['babel-polyfill', './src/app.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
     },
-  
+
     module: {
+      
       rules: [{
         loader: 'babel-loader',
         test: /\.js$/,
@@ -31,11 +38,12 @@ module.exports = {
         'process.env': JSON.stringify(dotenv.parsed)
       })
     ],
-    
+
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
       publicPath: '/dist/'
     },
-    devtool:'eval-cheap-module-source-map'
+    devtool: isProd ? 'source-map' :  'eval-cheap-module-source-map'
   }
+}

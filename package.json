@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "build:dev": "webpack",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "build:prod": "webpack -p --env production",
+    "dep-server": "node server/server.js"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
