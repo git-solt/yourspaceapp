@@ -1,6 +1,6 @@
 const addPost = ({title, content, published = true, id, pics, owner, createdAt} = {}, first = false) => {
 
-  createdAt = Date.now(createdAt)
+  createdAt = new Date(createdAt).valueOf()
 
   return {
     type: 'ADD_POST',

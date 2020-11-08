@@ -46,7 +46,11 @@ const Main = (props) => {
             {postSelector(props.posts, props.filter).map((cur) => <Post dispatch={props.dispatch}
                 token={props.user.token}
                 isAdmin={props.user.user.isAdmin}
-                key={cur.id}{...cur} />)}
+                key={cur.id}{...cur} />).sort((a,b)=> {
+                    if(a.props.createdAt === b.props.createdAt) return 0
+
+                    return a.props.createdAt > b.props.createdAt ? -1 : 1
+                })}
             {props.posts.length > 0 && (
                 <div className="tooltip container container__content-center tiny link-button--fetch-post">
                     <p className="max" onClick={(e) => {

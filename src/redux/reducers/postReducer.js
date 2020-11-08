@@ -1,9 +1,7 @@
 const postReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_POST': {
-      if (action.first === true) {
-        return [action.post,...state]
-      }
+
       return [...state,action.post]
     }
     
