@@ -12,6 +12,14 @@ const Main = (props) => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(true)
     const [skip, setSkip] = useState(5)
+    const NO_MORE_POSTS = 'No other posts found'
+
+    function alertError(e) {
+        setError(e)
+        setTimeout(() => {
+            setError('')
+        }, 3000)
+    }
     useEffect(() => {
         if (props.posts.length > 0) {
             setLoading(false)
@@ -21,23 +29,7 @@ const Main = (props) => {
 
     }, [props.posts])
 
-    // useEffect(() => {
-    //   fetchPosts()
-    //     .then((posts) => {
-    //       posts.forEach(({title, content, published, _id:id}) => {
-    //         props.dispatch(addPost({title, content, published, id}))
 
-    //       })
-
-    //     })
-
-    //     return () => props.dispatch(clearPosts())
-
-    // }, [])
-
-    // useEffect(() => {
-    //   console.log(props.posts)
-    // }, [props.posts])
 
 
     return (
@@ -46,11 +38,7 @@ const Main = (props) => {
             {postSelector(props.posts, props.filter).map((cur) => <Post dispatch={props.dispatch}
                 token={props.user.token}
                 isAdmin={props.user.user.isAdmin}
-                key={cur.id}{...cur} />).sort((a,b)=> {
-                    if(a.props.createdAt === b.props.createdAt) return 0
-
-                    return a.props.createdAt > b.props.createdAt ? -1 : 1
-                })}
+                key={cur.id}{...cur} />)}
             {props.posts.length > 0 && (
                 <div className="tooltip container container__content-center tiny link-button--fetch-post">
                     <p className="max" onClick={(e) => {
@@ -61,17 +49,13 @@ const Main = (props) => {
                                         const { title, content, published, _id: id, createdAt, pics, owner } = cur
                                         if (!props.posts.some(cur => cur.id === id)) {
                                             props.dispatch(addPost({ title, content, published, id, createdAt, pics, owner }))
-                                            console.log(data)
                                             setSkip(5)
                                         } else {
-                                            setError('No other posts found')
-                                            setTimeout(() => {
-                                                setError('')
-                                            }, 3000)
+                                            alertError(NO_MORE_POSTS)
                                         }
 
                                     })
-                                }
+                                } else alertError(NO_MORE_POSTS)
                             })
                     }}>{error || circles}</p>
                     <span className="tooltip--hint">More posts</span>

@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import TypePostForm from './TypePostForm'
 import updatePost from '../utils/updatePost'
 import removePost from '../utils/removePost'
-import { deletePost, patchPost } from '../redux/generators/posts'
+import { deletePost, patchPost, addPost } from '../redux/generators/posts'
+import fetchPosts from '../utils/fetchPosts'
 
 const EditPost = (props) => {
   const [post, setPost] = useState([])
@@ -52,6 +53,16 @@ const EditPost = (props) => {
               .then(({ removed }) => {
 
                 props.dispatch(deletePost(removed._id))
+                fetchPosts({limit: 1, skip: props.posts.length - 1})
+                  .then(data => {
+                    if(data.length > 0) {
+
+                      //IMPORTANT: Because server uses _id and reducer is expecting an object with id property
+                      const post = data[0]
+                      post.id = post._id
+                      props.dispatch(addPost(post))
+                    }
+                  })
                 props.history.push('/')
               })
           }}>Delete Post</button>

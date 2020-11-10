@@ -1,4 +1,4 @@
-const addPost = ({title, content, published = true, id, pics, owner, createdAt} = {}, first = false) => {
+const addPost = ({title, content, published = true, id, pics, owner, createdAt} = {}) => {
 
   createdAt = new Date(createdAt).valueOf()
 
@@ -12,8 +12,7 @@ const addPost = ({title, content, published = true, id, pics, owner, createdAt} 
       pics,
       owner,
       createdAt
-    },
-    first
+    }
   }
 }
 
