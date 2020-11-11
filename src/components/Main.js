@@ -11,7 +11,7 @@ const Main = (props) => {
     const [circles] = useState(parsed.body.innerText)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(true)
-    const [skip, setSkip] = useState(5)
+    const [skip, setSkip] = useState(0)
     const NO_MORE_POSTS = 'No other posts found'
 
     function alertError(e) {
@@ -24,10 +24,14 @@ const Main = (props) => {
         if (props.posts.length > 0) {
             setLoading(false)
         }
+        setSkip(props.posts.length)
+        
 
         console.log("Main re-rendering")
 
     }, [props.posts])
+
+
 
 
 
@@ -49,13 +53,13 @@ const Main = (props) => {
                                         const { title, content, published, _id: id, createdAt, pics, owner } = cur
                                         if (!props.posts.some(cur => cur.id === id)) {
                                             props.dispatch(addPost({ title, content, published, id, createdAt, pics, owner }))
-                                            setSkip(5)
                                         } else {
                                             alertError(NO_MORE_POSTS)
                                         }
 
                                     })
-                                } else alertError(NO_MORE_POSTS)
+
+                                    } else alertError(NO_MORE_POSTS)
                             })
                     }}>{error || circles}</p>
                     <span className="tooltip--hint">More posts</span>
