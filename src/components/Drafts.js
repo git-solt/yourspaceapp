@@ -4,6 +4,7 @@ import { fetchDrafts } from '../utils/fetchPosts'
 import Post from './Post'
 import reducer from '../hooks/reducers/draftReducer'
 import LoadPage from './LoadPage'
+import ToMain from './ToMain'
 
 
 
@@ -23,6 +24,7 @@ const Drafts = (props) => {
 
   return (
     <div className="container">
+      <ToMain/>
       <h1>Your unpublished posts</h1>
       {loading && <LoadPage />}
       {drafts.map(cur => <Post dispatchDraft={dispatchDraft} history={props.history} dispatch={props.dispatch} token={props.user.token} isAdmin={props.user.user.isAdmin} key={cur._id} {...cur} />)}

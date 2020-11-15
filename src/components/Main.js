@@ -13,6 +13,7 @@ const Main = (props) => {
     const [loading, setLoading] = useState(true)
     const [skip, setSkip] = useState(0)
     const NO_MORE_POSTS = 'No other posts found'
+    
 
     function alertError(e) {
         setError(e)

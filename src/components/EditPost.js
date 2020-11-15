@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import TypePostForm from './TypePostForm'
+import ToMain from './ToMain'
 import updatePost from '../utils/updatePost'
 import removePost from '../utils/removePost'
 import { deletePost, patchPost, addPost } from '../redux/generators/posts'
@@ -39,6 +40,7 @@ const EditPost = (props) => {
   }, [])
   return (
     <div className="container">
+      <ToMain/>
       <h2>Edit the post</h2>
       <div className="container">
       </div>

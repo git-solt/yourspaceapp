@@ -1,5 +1,6 @@
 import React from 'react'
 import TypePostForm from './TypePostForm'
+import ToMain from './ToMain'
 import createPost from '../utils/createPost'
 import { connect } from 'react-redux'
 import { addPost } from '../redux/generators/posts'
@@ -23,6 +24,7 @@ const CreatePost = (props) => {
 
   return (
     <div className="container container--full">
+      <ToMain/>
       <h2>Go ahead and make a new post</h2>
       <TypePostForm className="container__flex" createPost={true} submitHandler={submitHandler}/>
     </div>

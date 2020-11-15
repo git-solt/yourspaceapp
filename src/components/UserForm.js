@@ -24,6 +24,7 @@ const UserForm = (props) => {
   const unfield = document.querySelector('input[name="username"]')
   const regbutton = document.querySelector('input[name="submitButton"]')
   const closeBtn = document.querySelector('#closeBtn')
+  const modal = document.querySelector('.modal')
 
   
 
@@ -70,6 +71,7 @@ const UserForm = (props) => {
 
               setRegInfo('')
               info.textContent = 'Success'
+              modal.classList.add("modal--register-done")
               info.classList.add('msg--registered', 'msg--transend')
               pwfield.classList.add('userfield--register-done-bg', 'userfield--register-done-text')
               emailfield.classList.add('userfield--register-done-bg', 'userfield--username-done', 'userfield--welcome')
