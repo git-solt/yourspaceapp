@@ -33,7 +33,7 @@ const EditPost = (props) => {
     const post = props.posts.find(({ id }) => id === props.match.params.id)
 
     if (!post) {
-      props.history.push('/')
+      // props.history.push('/')
     }
     setPost(post)
 

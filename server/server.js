@@ -6,15 +6,11 @@ const fs = require('fs')
 app.use(express.static(path.resolve(__dirname, '..', 'public')))
 
 app.get('*', (req, res)=> {
-    res.redirect('/')
-    // res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'))
+    res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'))
 
 })
 
-app.get('*/:id', (req, res)=> {
-    console.log("Hit spesific")
-    res.redirect("/")
-})
+
 
 
 app.listen(3000, ()=> {

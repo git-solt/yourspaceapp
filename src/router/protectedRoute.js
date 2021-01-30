@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import {Route, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 
@@ -8,16 +8,29 @@ const ProtectedRoute = ({
   token,
   component: Component,
   ...rest
-}) => (
-  <Route {...rest} component={(props) => (
-    !isAdmin ?
-    <Redirect to="/"/>
-    :
-    <div>
-      <Component {...props}/>
-    </div>
-  )}/>
-)
+}) => {
+  const [hasAccess, setAccess] = useState(true)
+  const initialRedner = useRef(true)
+  useEffect(()=> {
+    if(!initialRedner.current) {
+      setAccess(!!isAdmin)
+    }
+    if(initialRedner.current) {
+      initialRedner.current = false;
+    }
+  }, [token, isAdmin])
+
+  return (
+    <Route {...rest} component={(props) => (
+      !hasAccess ?
+      <Redirect to="/"/>
+      :
+      <div>
+        <Component {...props}/>
+      </div>
+    )}/>
+  )
+}
 
 const mapStateToProps = (state) => ({
   isAdmin: state.authentication.user.isAdmin,
